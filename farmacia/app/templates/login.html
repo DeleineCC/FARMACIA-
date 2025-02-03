@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Estilo global para el body */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://img.freepik.com/vector-gratis/salud-ciencia-medica-elegante_1419-2183.jpg?semt=ais_hybrid');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        /* Estilo para el contenedor del formulario */
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Fondo oscuro transparente */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+
+        form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .flash-message {
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <h1>Iniciar Sesión</h1>
+
+        {% if 'username' not in session %}
+        <form method="POST">
+            <label for="username">Usuario:</label>
+            <input type="text" name="username" required>
+            <br>
+            <label for="password">Contraseña:</label>
+            <input type="password" name="password" required>
+            <br>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        {% else %}
+        <p>Ya has iniciado sesión como {{ session['username'] }}.</p>
+        <a href="{{ url_for('main.logout') }}">Cerrar sesión</a>
+        {% endif %}
+
+        {% for message in get_flashed_messages() %}
+        <p class="flash-message">{{ message }}</p>
+        {% endfor %}
+    </div>
+
+    <!-- Footer -->
+    <footer
+        style="position: fixed; bottom: 0; left: 0; width: 100%; text-align: center; background-color: #f1f1f1; padding: 10px; font-size: 14px; color: #333;">
+        <p>DAMARIS CARRIEL © 2025</p>
+    </footer>
+
+</body>
+
+</html>

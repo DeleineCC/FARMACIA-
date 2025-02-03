@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: row;
+        }
+
+        .menu {
+            width: 250px;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100vh;
+            position: relative;
+            background: linear-gradient(to bottom, #a0e7f1, #489da9);
+        }
+
+        .menu h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .menu button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 20px;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            text-align: left;
+        }
+
+        .menu button:hover {
+            background-color: #45a049;
+        }
+
+        .menu i {
+            margin-right: 10px;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background-image: url('https://media.istockphoto.com/id/1427929542/es/foto/p%C3%ADldoras-blancas-y-recipiente-m%C3%A9dico-de-pl%C3%A1stico-sobre-un-fondo-azul.jpg?s=612x612&w=0&k=20&c=-6WwkTqSiOK3NcBE2M6FUr-DAjwMDuhTeIUmWJpY2tM=');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .content h1 {
+            font-size: 32px;
+            color: #fff;
+        }
+
+        .content p {
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .logout-btn {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .logout-btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="menu">
+
+            <h2> <a href="{{ url_for('main.home') }}">Menú</a></h2>
+
+            <button>
+                <a href="{{ url_for('main.productos') }}" style="text-decoration: none; color: white;">
+                    <i class="fas fa-pills"></i> Lista de productos
+                </a>
+            </button>
+
+            <a href="{{ url_for('main.login') }}" class="logout-btn">Cerrar sesión</a>
+
+
+            
+            <footer
+                style="position: fixed; bottom: 0; left: 0; width: 100%; text-align: center; background-color: #f1f1f1; padding: 10px; font-size: 14px; color: #333;">
+                <p>DAMARIS CARRIEL © 2025</p>
+            </footer>
+
+        </div>
+
+        <div class="content">
+            <h1>¡Bienvenido al Sistema!</h1>
+            <p>Acceso exitoso.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
